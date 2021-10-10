@@ -31,7 +31,7 @@ $interest =$_POST['interest'];
     
 
     $sourcePath = $_FILES['image']['tmp_name'];
-    $destinationPath = "resumes/".$image;
+    $destinationPath = "../Admin/resumes/".$image;
 
     $upload = move_uploaded_file($sourcePath,$destinationPath);
 
