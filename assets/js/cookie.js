@@ -1,0 +1,1 @@
+if(document.cookie.indexOf('showCookie=')=="-1"||document.cookie.indexOf('showCookie=')==-1){window.onload=function(e){setTimeout(function(){let cookiePopup=$('.sf-cookie');cookiePopup.addClass('-visible');},100);}}

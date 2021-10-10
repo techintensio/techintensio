@@ -1,0 +1,1 @@
+$(function(){$(".sf-post-list-item.-wall").slice(0,12).show();$("a.sf-btn.sf-btn_flat.-full.-lg").click(function(e){e.preventDefault();$(".sf-post-list-item.-wall:hidden").slice(0,12).show();});});

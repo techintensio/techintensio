@@ -1,0 +1,2 @@
+function seeMore(){document.querySelector('.sf-description-text.-show').style.display='block';document.querySelector('a.sf-description-link').style.display='none';}
+function more(){document.querySelector('.sf-security-case-item-steps.-show').style.display='inline-flex';document.querySelector('a.sf-security-case-item-link').style.display='none';}

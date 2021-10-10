@@ -1,0 +1,8 @@
+function enableDemoSubmit(){document.getElementById('submit-demo').disabled=false;}
+$("#demo_form").on('submit',function(e){e.preventDefault();if(checkDemoRequestValidation()){$.ajax({type:$(this).prop('method'),url:$(this).prop('action'),data:JSON.stringify($(this).serialize()),dataType:"json"}).done(function(result){$(this).trigger('reset');window.location.href="/thank-you/";});}
+else{document.querySelector('.-demoo').style.display='block';}});const checkDemoRequestValidation=()=>{let firstName=document.getElementById('demofname').value;let lastname=document.getElementById('demolname').value;let email=document.getElementById('demoemail').value;let inpphone=document.getElementById('demophone').value;let company=document.getElementById('democompany').value;let country=document.getElementById('democountry').value;let resp=true;if(!firstName.match(letters)||!lastname.match(letters)){resp=false;document.querySelector('.-demoo').innerHTML='Invalid Name!';}
+if(!email.match(email)){resp=false;document.querySelector('.-demoo').innerHTML='Invalid Email!';}
+if(!inpphone.match(phone)){resp=false;document.querySelector('.-demoo').innerHTML='Invalid Mobile Number!';}
+if(!company.match(letters)){resp=false;document.querySelector('.-demoo').innerHTML='Invalid Company Name!';}
+if(!country.indexOf(countrycode)){resp=false;document.querySelector('.-demoo').innerHTML='Invalid Country!';}
+return resp;}

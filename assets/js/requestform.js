@@ -1,0 +1,9 @@
+var pageValue='';function GetURL(){var value=document.URL;var pageurl=value.split("/");pageValue=pageurl[pageurl.length-2];}
+function enableReqSubmit(){document.getElementById('submit-req').disabled=false;}
+$("#request_form").on('submit',function(e){e.preventDefault();var formData=($(this).serialize());formData=formData+`&pageName=${pageValue}`;if(checkRequestValidation()){$.ajax({type:$(this).prop('method'),url:$(this).prop('action'),data:JSON.stringify(formData),dataType:"json"}).done(function(result){$(this).trigger('reset');window.location.href="/thank-you/";});}
+else{document.querySelector('.-request').style.display='block';}});const checkRequestValidation=()=>{let firstName=document.getElementById('requestfname').value;let lastname=document.getElementById('requestlname').value;let email=document.getElementById('requestemail').value;let inpphone=document.getElementById('requestphone').value;let company=document.getElementById('requestcompany').value;let country=document.getElementById('requestcountry').value;let resp=true;if(!firstName.match(letters)||!lastname.match(letters)){resp=false;document.querySelector('.-request').innerHTML='Invalid Name!';}
+if(!email.match(email)){resp=false;document.querySelector('.-request').innerHTML='Invalid Email!';}
+if(!inpphone.match(phone)){resp=false;document.querySelector('.-request').innerHTML='Invalid Mobile Number!';}
+if(!company.match(letters)){resp=false;document.querySelector('.-request').innerHTML='Invalid Company Name!';}
+if(!country.match(letters)){resp=false;document.querySelector('.-request').innerHTML='Invalid Country!';}
+return resp;}

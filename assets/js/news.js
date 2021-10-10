@@ -1,0 +1,1 @@
+$(function(){$(".sf-news-list-item").slice(0,12).show();$("a.sf-btn.sf-btn_flat.-full.-lg").click(function(e){e.preventDefault();$(".sf-news-list-item:hidden").slice(0,12).show();});});

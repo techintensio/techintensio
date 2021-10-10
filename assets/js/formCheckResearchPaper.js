@@ -1,0 +1,9 @@
+function enableReqSubmit(){document.getElementById('submit-req').disabled=false;}
+$("#researchpaper_form").on('submit',function(e){e.preventDefault();if(checkRPValidation()){$.ajax({type:$(this).prop('method'),url:$(this).prop('action'),data:JSON.stringify($(this).serialize()),dataType:"json"}).done(function(result){document.querySelector('.sf-paper-grid-col-container-thanks').style.display='block';document.querySelector('.-downloadForm').style.display='none';document.querySelector('.sf-paper-grid-col-title').style.display='none';});}
+else{document.querySelector('.-rp').style.display='block';}});const checkRPValidation=()=>{let firstName=document.getElementById('rp-fName').value;let lastName=document.getElementById('rp-lName').value;let company=document.getElementById('rp-company').value;let inpphone=document.getElementById('rp-phone').value;let email=document.getElementById('rp-email').value;let country=document.getElementById('rp-country').value;let state=document.getElementById('rp-state').value;let resp=true;if(!firstName.match(letters)||!lastName.match(letters)){resp=false;document.querySelector('.-rp').innerHTML='Invalid Name!';}
+if(!email.match(email)){resp=false;document.querySelector('.-rp').innerHTML='Invalid Email!';}
+if(!inpphone.match(phone)){resp=false;document.querySelector('.-rp').innerHTML='Invalid Mobile Number!';}
+if(!company.match(letters)){resp=false;document.querySelector('.-rp').innerHTML='Invalid Company Name!';}
+if(!country.match(letters)){resp=false;document.querySelector('.-rp').innerHTML='Invalid Country!';}
+if(!state.match(letters)){resp=false;document.querySelector('.-rp').innerHTML='Invalid State!';}
+return resp;}
