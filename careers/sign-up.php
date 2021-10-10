@@ -18,12 +18,17 @@ $exp =$_POST['exp'];
 $interest =$_POST['interest'];
             
     
-  if (isset($_FILES['image']['name'])) {
+  // if (isset($_FILES['image']['name'])) {
 
     $image = $_FILES['image']['name'];
 
     $ext = end(explode('.', $image));
-    $image = "Resume-".rand(0000,9999).".".$ext;
+    // $image = "Resume-".rand(0000,9999).".".$ext;
+
+    if ($ext == "pdf" || $ext == "PDF") {
+      # code...
+
+    
 
     $sourcePath = $_FILES['image']['tmp_name'];
     $destinationPath = "resumes/".$image;
@@ -35,8 +40,8 @@ $interest =$_POST['interest'];
       echo "<script> Successfully Registered </script>";
     }
   // }
-  }
-  else $image = "";
+  // }
+  // else $image = "";
 
 $sql1 = $conn->prepare("INSERT INTO `users`(`username`, `email`, `phno`, `exp`, `interest`, `resume`) VALUES (?, ?, ?, ?, ?, ?)");
 $sql1->bind_param("ssssss", $username, $email, $phno, $exp, $interest, $image);
@@ -53,7 +58,8 @@ $sql1->execute();
                              </script>
                              <?php 
                         }
-                        
+      }
+      else echo "<script>alert('Try to upload only pdf files');</script>";                 
 }
 ?>
 
@@ -199,8 +205,8 @@ $sql1->execute();
                     
                         <p>Upload resume</p>
                  
-                        <input type="file" name="image" align="right" required>
-                        
+                        <input type="file" name="image" accept="application/pdf"  align="right" required>
+                        <p style="color: red;">*&nbsp;upload pdf file only</p>
                 </table>
             </div>
                 
