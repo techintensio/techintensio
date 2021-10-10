@@ -133,6 +133,7 @@
                         while($row = $result->fetch_assoc()){
                         ?>
                         <tr>
+                          <!-- test -->
                           <td><?php echo($row['id']);?></td>
                           <td><?php echo($row['username']);?></td>
                           <td><?php echo($row['email']);?></td>
