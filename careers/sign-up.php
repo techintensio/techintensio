@@ -41,14 +41,14 @@ $interest =$_POST['interest'];
 $sql1 = $conn->prepare("INSERT INTO `users`(`username`, `email`, `phno`, `exp`, `interest`, `resume`) VALUES (?, ?, ?, ?, ?, ?)");
 $sql1->bind_param("ssssss", $username, $email, $phno, $exp, $interest, $image);
 $sql1->execute();
-                   
+        
                         if($sql1)  
                         {
                              ?>
                              <script type="text/javascript">
                                  alert("Submitted successfully");
                                  setTimeout( ()=> {
-                                    window.location.href = "../index.html";
+                                    window.location.href = "../index.php";
                                  },0);
                              </script>
                              <?php 
